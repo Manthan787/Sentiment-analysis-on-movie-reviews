@@ -7,7 +7,7 @@ import os
 import re
 
 """
-The data used by this script is now owned by me. It was collected by Bo Pang, Lillian Lee, and Shivakumar Vaithyanathan
+The data used by this script is not owned by me. It was collected by Bo Pang, Lillian Lee, and Shivakumar Vaithyanathan
 for their research paper.
 More about data and how it was collected: http://www.cs.cornell.edu/people/pabo/movie-review-data/
 This script was written to process the polarity_dataset v1.0
@@ -39,7 +39,6 @@ def calculate_likelihood(text, counts):
     """ Calculates the likelihood of the given text being in a particular reviewclass, based on the counts provided """
     prediction = 1
     text_count = get_count(text.lower())
-    print text_count
     for word in text_count:
         term1 = text_count.get(word) * (counts.get(word, 0) + 1)
         term2 = sum(counts.values()) + len(counts)
@@ -82,7 +81,7 @@ The only criticism I have about the film is that more aren't like it. A smart, s
 
 So, in short, I implore you. I beg you. If you step into a movie theater once this year, let it be to watch this film. It deserves your attention."""
 
-print "Likelihood for pos class"
+
 neg_test1 = r""" For me, a complete and total waste of money and time. My friend fell asleep about 20 minutes into this self-indulgent piece of tripe.
 
 This movie strains so hard to make itself 'important' and 'groundbreaking' that it never stops to see that it has been done before by Masters such as Woody Allen, Hitchcock and any late night black/white '40s movie.
@@ -95,7 +94,26 @@ Do not waste your time. If you want to see what theater and Broadway are all abo
 
 And, I might add, Michael Keaton, to me, was trying too hard, had few acting chops and it was embarrassing to watch him in this. He, like the character he played, was trying way too hard."""
 
+# Birdman negative review
 neg_test2 = r"""I created this account for the sole purpose of reviewing this piece of junk. Coming in to this movie, I had heard bad things from people who had seen it but great things from critics. After leaving, the only good thing about it was the acting. This movie definitely was different and unique, but there's a difference from being different and making art and being different and making a piece of crap. The fact that this movie was nominated for best picture above a piece of art, such as Interstellar, is appalling. I do applaud the director for taking a risk and trying to make an unconventional movie, but he needed to first develop a plot in order to make a good movie. I strongly discourage anyone from wasting their time and money seeing this. If you want to watch a movie that is different and considered art, watch any Christopher Nolan, Stanley Kubrick, or Quentin Tarantino movie, not this pathetic excuse for entertainment. And to critics, please learn the difference between unconventional artistic movies and this bloody rubbish."""
 
-predict(neg_test1)
-predict(pos_test)
+# Mad max bad review
+neg_test3 = r"""It's hard to believe that the same talented director who made the influential cult action classic The Road Warrior had anything to do with this disaster.
+
+Road Warrior was raw, gritty, violent and uncompromising, and this movie is the exact opposite. It's like Road Warrior for kids who need constant action in their movies.
+
+This is the movie. The good guys get into a fight with the bad guys, outrun them, they break down in their vehicle and fix it. Rinse and repeat. The second half of the movie is the first half again just done faster.
+
+The Road Warrior may have been a simple premise but it made you feel something, even with it's opening narration before any action was even shown. And the supporting characters were given just enough time for each of them to be likable or relatable.
+
+In this movie there is absolutely nothing and no one to care about. We're supposed to care about the characters because... well we should. George Miller just wants us to, and in one of the most cringe worthy moments Charlize Theron's character breaks down while dramatic music plays to try desperately to make us care.
+
+Tom Hardy is pathetic as Max. One of the dullest leading men I've seen in a long time. There's not one single moment throughout the entire movie where he comes anywhere near reaching the same level of charisma Mel Gibson did in the role. Gibson made more of an impression just eating a tin of dog food.
+
+In the previous movies, fuel and guns and bullets were rare. Not anymore. It doesn't even seem Post-Apocalyptic. There's no sense of desperation anymore and everything is too glossy looking. And the main villain's super model looking wives with their perfect skin are about as convincing as apocalyptic survivors as Hardy's Australian accent is.
+
+Some of the green screen is very obvious and fake looking, and the CGI sandstorm is laughably bad.
+
+There's no tension, no real struggle, or any real dirt and grit that Road Warrior had. Everything George Miller got right with that masterpiece he gets completely wrong here."""
+predict(neg_test3)
+#predict(pos_test)
