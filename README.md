@@ -1,4 +1,4 @@
-# Sentiment-analysis-on-movie-reviews
+# Sentiment Analysis On Movie Reviews
 The dataset used to perform sentiment analysis was created by Bo Pang, Lillian Lee, and Shivakumar Vaithyanathan. 
 More information about the Dataset and their papers can be found [here](http://www.cs.cornell.edu/people/pabo/movie-review-data/)
 
